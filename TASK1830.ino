@@ -56,21 +56,31 @@ if (irrecv.decode(&results)) // have we received an IR signal?
 
 
       case 0xFF22DD: // << button pressed --> turn left 
-
       pos = 0; 
       myservo.write(pos);
+       myStepper.setSpeed(200); //can slow this down if u want?
+                      Steps2Take  =  2048;  // Rotate CW
+                      myStepper.step(Steps2Take);
                       break;
 
       case 0xFF02FD: // middle playpause button pressed --> turn straight
 
       pos = 90; 
       myservo.write(pos);
+      
+       myStepper.setSpeed(200); //can slow this down if u want?
+                      Steps2Take  =  2048;  // Rotate CW
+                      myStepper.step(Steps2Take);
                       break;
 
 
       case 0xFFC23D: // >> button pressed --> turn right 
       pos = 180; 
       myservo.write(pos); 
+      
+       myStepper.setSpeed(200); //can slow this down if u want?
+                      Steps2Take  =  2048;  // Rotate CW
+                      myStepper.step(Steps2Take);
                       break;
                 
     }
